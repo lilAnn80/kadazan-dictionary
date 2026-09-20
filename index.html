@@ -3,35 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kadazan-Papar Dictionary</title>
-    <!-- Link to our external CSS file -->
+    <title>EthnoSTEM: Kadazan-Papar Dictionary</title>
     <link rel="stylesheet" href="style.css">
-    <!-- PapaParse for converting the Google Sheets CSV to readable data -->
+    <!-- PapaParse reads the Google Sheets CSV -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 </head>
 <body>
     <main class="app-container">
         <header class="app-header">
             <h1>Kadazan-Papar Dictionary</h1>
-            <p class="subtitle">Search dynamically across Kadazan, English, and Malay.</p>
+            <p class="subtitle">Search, listen, and practice your vocabulary.</p>
+            <button id="toggleQuizBtn" class="primary-btn">Play Practice Quiz 🎮</button>
         </header>
 
-        <section class="search-section">
-            <input 
-                type="search" 
-                id="searchBar" 
-                placeholder="Type a word..." 
-                autocomplete="off"
-            >
-            <div class="status-text" id="statusText">Loading database...</div>
+        <!-- DICTIONARY MODE -->
+        <section id="dictionarySection">
+            <div class="search-section">
+                <input type="search" id="searchBar" placeholder="Search in Kadazan, English, or Malay..." autocomplete="off">
+                
+                <!-- Category Pills appear here automatically -->
+                <div id="categoryContainer" class="category-scroll"></div>
+                
+                <div class="status-text" id="statusText">Loading database...</div>
+            </div>
+
+            <section id="resultsContainer" class="results-grid">
+                <!-- Word cards injected here -->
+            </section>
         </section>
 
-        <section id="resultsContainer" class="results-grid">
-            <!-- JavaScript will inject the dictionary cards here -->
+        <!-- QUIZ MODE -->
+        <section id="quizSection" class="hidden">
+            <div class="quiz-card">
+                <h2>What is the English translation for:</h2>
+                <div id="quizTargetWord" class="quiz-target">...</div>
+                <div id="quizOptionsContainer" class="quiz-options">
+                    <!-- Multiple choice buttons injected here -->
+                </div>
+                <div id="quizFeedback" class="quiz-feedback"></div>
+            </div>
         </section>
     </main>
 
-    <!-- Link to our external logic file -->
     <script src="app.js"></script>
 </body>
 </html>
