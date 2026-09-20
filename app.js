@@ -1,5 +1,5 @@
 // --- CONFIGURATION ---
-const CSV_URL = "PASTE_YOUR_LIVE_DATA_CSV_LINK_HERE";
+const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR7UDuPwhE3OUKIJeACBvoUpFCMJX_hVBPcxAUxmIh_LS6awxSCGGz1K0rdZOIQRXuGcVnPBWdVpJwn/pub?gid=421571041&single=true&output=csv";
 
 // --- STATE ---
 let dictionaryDatabase = [];
