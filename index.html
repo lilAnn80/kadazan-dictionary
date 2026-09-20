@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kadazan-Papar Dictionary</title>
+    <!-- Link to our external CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- PapaParse for converting the Google Sheets CSV to readable data -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+</head>
+<body>
+    <main class="app-container">
+        <header class="app-header">
+            <h1>Kadazan-Papar Dictionary</h1>
+            <p class="subtitle">Search dynamically across Kadazan, English, and Malay.</p>
+        </header>
+
+        <section class="search-section">
+            <input 
+                type="search" 
+                id="searchBar" 
+                placeholder="Type a word..." 
+                autocomplete="off"
+            >
+            <div class="status-text" id="statusText">Loading database...</div>
+        </section>
+
+        <section id="resultsContainer" class="results-grid">
+            <!-- JavaScript will inject the dictionary cards here -->
+        </section>
+    </main>
+
+    <!-- Link to our external logic file -->
+    <script src="app.js"></script>
+</body>
+</html>
