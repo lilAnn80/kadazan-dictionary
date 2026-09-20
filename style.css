@@ -16,21 +16,29 @@ body {
     color: var(--primary-color);
 }
 
-.app-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
+.app-container { max-width: 800px; margin: 0 auto; }
+.app-header { text-align: center; margin-bottom: 1.5rem; }
+.subtitle { color: var(--text-muted); font-size: 1.1rem; }
+.hidden { display: none !important; }
 
-.app-header {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.subtitle {
-    color: var(--text-muted);
+/* Interactive Primary Button */
+.primary-btn {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 12px;
     font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 20px;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
 }
+.primary-btn:active { transform: scale(0.98); }
 
+/* Search & Categories */
 #searchBar {
     width: 100%;
     padding: 16px 20px;
@@ -39,89 +47,79 @@ body {
     border-radius: 12px;
     box-sizing: border-box;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
 }
+#searchBar:focus { outline: none; border-color: var(--accent-color); }
 
-#searchBar:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.15);
+.category-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 12px 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
+.category-scroll::-webkit-scrollbar { display: none; }
 
-.status-text {
-    text-align: right;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-top: 8px;
-    min-height: 20px;
+.category-pill {
+    background: #e9ecef;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    cursor: pointer;
+    color: var(--primary-color);
+    transition: all 0.2s ease;
 }
+.category-pill.active { background: var(--accent-color); color: white; }
+.status-text { text-align: right; font-size: 0.85rem; color: var(--text-muted); min-height: 20px; }
 
-.results-grid {
-    display: grid;
-    gap: 16px;
-    margin-top: 20px;
-}
-
+/* Dictionary Cards */
+.results-grid { display: grid; gap: 16px; margin-top: 10px; }
 .word-card {
     background: var(--card-bg);
     padding: 24px;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     border-left: 4px solid var(--accent-color);
-    transition: transform 0.2s ease;
 }
-
-.word-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
-}
-
-.kadazan-root {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 4px;
-}
-
-.kadazan-variations {
-    font-size: 1rem;
-    color: var(--text-muted);
-    font-style: italic;
-    margin-bottom: 16px;
-}
-
-.translation-row {
-    display: flex;
-    align-items: baseline;
-    margin-bottom: 8px;
-    font-size: 1.1rem;
-}
-
-.lang-badge {
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 3px 8px;
-    border-radius: 4px;
-    margin-right: 12px;
-    color: white;
-}
-
+.kadazan-root { font-size: 1.75rem; font-weight: 700; display: flex; align-items: center; margin-bottom: 4px; }
+.kadazan-variations { font-size: 1rem; color: var(--text-muted); font-style: italic; margin-bottom: 16px; }
+.translation-row { display: flex; align-items: baseline; margin-bottom: 8px; font-size: 1.1rem; }
+.lang-badge { font-size: 0.75rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-right: 12px; color: white; }
 .badge-en { background-color: var(--english-color); }
 .badge-ms { background-color: var(--malay-color); }
+.context-tag { font-size: 0.9rem; color: var(--text-muted); background: #f1f3f5; padding: 2px 6px; border-radius: 4px; margin-left: 8px; }
 
-.context-tag {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    background: #f1f3f5;
-    padding: 2px 6px;
-    border-radius: 4px;
-    margin-left: 8px;
-}
-
+/* Example Sentences Update */
 .ai-sentence {
-    margin-top: 16px;
-    padding-top: 16px;
+    margin-top: 16px; padding-top: 16px;
     border-top: 1px dashed #e9ecef;
-    font-size: 0.95rem;
-    color: #495057;
+    font-size: 0.95rem; color: #495057;
 }
+
+/* Audio Play Button */
+.audio-btn {
+    background: #f1f3f5; border: none; font-size: 1.25rem;
+    cursor: pointer; margin-left: 12px; padding: 6px 10px;
+    border-radius: 50%; transition: transform 0.2s;
+}
+.audio-btn:hover { transform: scale(1.1); background-color: #e2e6ea; }
+
+/* Quiz Interface */
+.quiz-card {
+    background: var(--card-bg); padding: 40px 20px;
+    border-radius: 12px; text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.quiz-target { font-size: 3rem; font-weight: bold; color: var(--accent-color); margin: 20px 0; }
+.quiz-options { display: grid; gap: 12px; max-width: 400px; margin: 0 auto; }
+.quiz-opt-btn {
+    background: white; border: 2px solid #e9ecef;
+    padding: 16px; font-size: 1.1rem; font-weight: bold;
+    border-radius: 8px; cursor: pointer; transition: all 0.2s ease;
+}
+.quiz-opt-btn:hover { border-color: var(--accent-color); background: #f8fbfe; }
+.quiz-feedback { margin-top: 24px; font-size: 1.3rem; font-weight: bold; height: 30px; }
+.feedback-correct { color: var(--english-color); }
+.feedback-wrong { color: #e74c3c; }
